@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#1a0409">
+    <meta name="description" content="The Groom's Adventure - Muneeb's Epic Mobile Game & Photo Showcase!">
+    <title>The Groom's Adventure ❤️ Muneeb's Special Game</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Audio Control Top Bar -->
+    <div id="audio-control-bar" class="audio-bar">
+        <span class="audio-title">MUNEEB'S ADVENTURE 👑</span>
+        <button id="btn-toggle-audio" class="audio-btn" aria-label="Toggle Sound">
+            <span id="audio-icon">🔊</span> SOUND ON
+        </button>
+    </div>
+
+    <!-- Floating Background Particles (Hearts, Sparkles, Gold Dust) -->
+    <div id="ambient-particles" class="particles-container"></div>
+
+    <!-- MAIN APP CONTAINER -->
+    <main id="app-container">
+
+        <!-- ==========================================
+             PAGE 1: WELCOME SCREEN (HERO SPOTLIGHT)
+             ========================================== -->
+        <section id="welcome-screen" class="page-section active">
+            <div class="wedding-card hero-card 3d-card">
+                <div class="card-ornament top-ornament">👑 ✨ 👑</div>
+                
+                <p class="subtitle-tag animate-fade-in">ONE LAST ADVENTURE</p>
+                <h1 class="main-title animate-fade-in delay-1">BEFORE THE BIG DAY</h1>
+                
+                <div class="hero-photo-wrapper animate-pop-in delay-2">
+                    <div class="photo-halo"></div>
+                    <div class="photo-frame 3d-tilt">
+                        <img id="welcome-groom-img" src="assets/groom.jpg" alt="Muneeb" class="hero-img">
+                        <div class="photo-shimmer"></div>
+                    </div>
+                    <div class="hero-crown-badge">👑</div>
+                </div>
+
+                <div class="groom-announcement animate-fade-in delay-3">
+                    <h2 class="groom-name"><span class="groom-name-text">MUNEEB</span></h2>
+                    <p class="announcement-text">THE LEGEND'S BIG DAY <span class="heart-pulse">🔥</span></p>
+                </div>
+
+                <button id="btn-enter-adventure" class="btn btn-gold pulse-glow animate-bounce delay-4">
+                    EXPLORE HIS STORY & PLAY →
+                </button>
+                
+                <div class="card-ornament bottom-ornament">✨ 🏆 ✨</div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             PAGE 2: HIS STORY & MASSIVE PHOTO GALLERY
+             ========================================== -->
+        <section id="story-screen" class="page-section hidden">
+            <div class="story-header">
+                <p class="story-pretitle">THE LEGENDARY JOURNEY</p>
+                <h2 class="section-title">BEFORE THE BIG DAY...</h2>
+                <p class="story-subtitle">Tap any photo to expand into full 3D viewer ✨</p>
+                <div class="divider-line"><span>👑</span></div>
+            </div>
+
+            <!-- Massive Animated Photo Gallery Grid/Timeline -->
+            <div id="memory-timeline" class="timeline-container">
+                <!-- Dynamic cards with 3D tilt and massive entry animations generated in game.js -->
+            </div>
+
+            <div class="story-footer">
+                <button id="btn-to-game-intro" class="btn btn-gold btn-large pulse-glow">
+                    🎮 PLAY THE GROOM GAME →
+                </button>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             PAGE 3: GAME INTRO & MISSION
+             ========================================== -->
+        <section id="game-intro-screen" class="page-section hidden">
+            <div class="wedding-card intro-card">
+                <div class="game-intro-icon">🎮 👑 🏃‍♂️</div>
+                <p class="intro-tag">THE FINAL QUEST</p>
+                <h2 class="intro-title">READY MUNEEB?</h2>
+                <p class="intro-desc">His biggest adventure is about to begin...</p>
+
+                <div class="mission-box pulse-glow">
+                    <h3>HELP <span class="groom-name-text">MUNEEB</span></h3>
+                    <p class="mission-highlight">REACH THE WEDDING STAGE! 🏆</p>
+                </div>
+
+                <div class="controls-card">
+                    <h4>HOW TO PLAY:</h4>
+                    <div class="control-grid">
+                        <div class="control-item">
+                            <span class="control-icon">📱</span>
+                            <p><strong>MOBILE</strong><br>Tap anywhere on screen to jump</p>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-icon">⌨️</span>
+                            <p><strong>DESKTOP</strong><br>Press Spacebar or Arrow Up</p>
+                        </div>
+                    </div>
+                    <p class="control-tip">Dodge obstacles 🪑 & collect Hearts ❤️ / Rings 💍!</p>
+                </div>
+
+                <button id="btn-start-game" class="btn btn-gold btn-large pulse-glow">
+                    💍 START THE GAME NOW
+                </button>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             GAMEPLAY CANVAS SECTION
+             ========================================== -->
+        <section id="game-screen" class="page-section hidden">
+            <div id="game-hud">
+                <div class="hud-item score-box">
+                    <span class="hud-label">SCORE</span>
+                    <span id="current-score" class="hud-val">0</span>
+                </div>
+                <div class="hud-item target-box">
+                    <span class="hud-label">GOAL</span>
+                    <span id="target-score" class="hud-val">200</span>
+                </div>
+                <div class="hud-item best-box">
+                    <span class="hud-label">BEST</span>
+                    <span id="best-score" class="hud-val">0</span>
+                </div>
+            </div>
+
+            <!-- Dynamic Event Toast -->
+            <div id="game-toast" class="game-toast-banner hidden">
+                <span id="toast-text">RUN FASTER MUNEEB! 🏃‍♂️💨</span>
+            </div>
+
+            <!-- Canvas Container -->
+            <div id="canvas-container">
+                <canvas id="game-canvas"></canvas>
+            </div>
+
+            <!-- Mobile Touch Jump Indicator -->
+            <div id="mobile-tap-hint" class="tap-hint">
+                <span>TAP ANYWHERE TO JUMP ⬆️</span>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         MODALS & OVERLAYS
+         ========================================== -->
+
+    <!-- LIGHTBOX PHOTO MODAL FOR MASSIVE VIEWING -->
+    <div id="photo-lightbox-modal" class="modal-overlay hidden">
+        <div class="lightbox-content animate-zoom-in">
+            <button id="btn-close-lightbox" class="lightbox-close">✖</button>
+            <div class="lightbox-frame">
+                <img id="lightbox-img" src="" alt="Enlarged Photo">
+            </div>
+            <div class="lightbox-info">
+                <span id="lightbox-tag" class="lightbox-badge">LEGENDARY</span>
+                <h3 id="lightbox-title">THE PHOTO</h3>
+                <p id="lightbox-caption">Caption</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- GAME OVER MODAL -->
+    <div id="game-over-modal" class="modal-overlay hidden">
+        <div class="modal-card game-over-card">
+            <div class="funny-icon">😄</div>
+            <h2>OH NO MUNEEB!</h2>
+            <p class="modal-subtitle">THE GROOM GOT DISTRACTED!</p>
+            
+            <div class="modal-stats">
+                <p>Score Reached: <strong id="final-score-val">0</strong></p>
+                <p id="funny-reason">Muneeb stopped for a Karak Chai break! ☕</p>
+            </div>
+
+            <div class="modal-actions">
+                <button id="btn-retry" class="btn btn-primary">TRY AGAIN 🔄</button>
+                <button id="btn-back-memories" class="btn btn-secondary">PHOTO GALLERY 📸</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- WIN & CELEBRATION MODAL -->
+    <div id="win-modal" class="modal-overlay hidden">
+        <div class="modal-card win-card animate-zoom-in">
+            <div class="win-crown">👑 🏆 👑</div>
+            <h2 class="win-title">🎉 HE MADE IT! 🎉</h2>
+            <p class="win-subtitle">MUNEEB HAS CONQUERED THE CHALLENGE!</p>
+
+            <div class="couple-spotlight">
+                <div class="couple-names">
+                    <span class="groom-name-text">MUNEEB</span>
+                    <span class="heart-pulse"> 👑 </span>
+                </div>
+                <p class="married-tag">ROYAL WEDDING CELEBRATION</p>
+                <div class="couple-photo-frame 3d-glow">
+                    <img id="win-couple-img" src="assets/groom.jpg" alt="Muneeb" class="win-photo">
+                </div>
+            </div>
+
+            <div class="modal-actions vertical-stack">
+                <button id="btn-replay-game" class="btn btn-gold btn-large pulse-glow">
+                    🎮 PLAY AGAIN 🔄
+                </button>
+                <button id="btn-win-back-memories" class="btn btn-secondary">
+                    📸 REPLAY MEMORIES
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="game.js"></script>
+</body>
+</html>
